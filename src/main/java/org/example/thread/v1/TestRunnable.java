@@ -14,6 +14,6 @@ public class TestRunnable implements Runnable {
 
     @Override
     public void run() {
-        account.add();
+        account.add1();
     }
 }
