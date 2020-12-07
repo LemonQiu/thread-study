@@ -7,8 +7,7 @@ import java.util.concurrent.TimeUnit;
  * @Author qiu
  * @Date 2020/12/8 0:58
  *
- * 如果写加锁，读不加锁会怎样？
- * 脏读
+ * 写加锁，读不加锁，会产生脏读
  */
 public class DirtyReadTest {
 

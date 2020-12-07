@@ -1,7 +1,7 @@
 package org.example;
 
-import org.example.thread.v1.Account;
-import org.example.thread.v1.TestRunnable;
+import org.example.thread.v2.Account;
+import org.example.thread.v2.TestRunnable;
 import org.junit.Test;
 
 import java.util.concurrent.ExecutorService;

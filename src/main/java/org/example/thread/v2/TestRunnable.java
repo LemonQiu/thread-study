@@ -1,4 +1,4 @@
-package org.example.thread.v1;
+package org.example.thread.v2;
 
 /**
  * @Author qiu
