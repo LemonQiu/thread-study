@@ -8,8 +8,9 @@ import java.util.concurrent.TimeUnit;
  * @Date 2020/12/8 0:58
  *
  * 如果写加锁，读不加锁会怎样？
+ * 脏读
  */
-public class ReadWriteTest {
+public class DirtyReadTest {
 
     private String name;
 
@@ -39,16 +40,16 @@ public class ReadWriteTest {
      * @param args
      */
     public static void main(String[] args) {
-        ReadWriteTest readWriteTest = new ReadWriteTest();
-        new Thread(() -> readWriteTest.set("li si", 12.23), "t1").start();
+        DirtyReadTest dirtyReadTest = new DirtyReadTest();
+        new Thread(() -> dirtyReadTest.set("li si", 12.23), "t1").start();
 
-        new Thread(() -> readWriteTest.getScore("li si"), "t2").start();
+        new Thread(() -> dirtyReadTest.getScore("li si"), "t2").start();
         try {
             TimeUnit.SECONDS.sleep(2);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
 
-        new Thread(() -> readWriteTest.getScore("li si"), "t3").start();
+        new Thread(() -> dirtyReadTest.getScore("li si"), "t3").start();
     }
 }
