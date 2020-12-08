@@ -16,17 +16,24 @@ package org.example.thread.v7;
  */
 public class VolatileTest3 {
 
-    private static volatile VolatileTest3 volatileTest3 = null;
+    private static volatile VolatileTest3 INSTANCE;
 
     public static VolatileTest3 getInstance() {
-        if(volatileTest3 == null) {
+        if(INSTANCE == null) {
             synchronized (VolatileTest3.class) {
-                if(volatileTest3 == null) {
-                    volatileTest3 = new VolatileTest3();
-                    return volatileTest3;
+                if(INSTANCE == null) {
+                    INSTANCE = new VolatileTest3();
+                    return INSTANCE;
                 }
             }
         }
-        return volatileTest3;
+        return INSTANCE;
     }
+
+    public static void main(String[] args) {
+        for (int i = 0; i < 100; i++) {
+            new Thread(() -> System.out.println(VolatileTest3.getInstance().hashCode())).start();
+        }
+    }
+
 }

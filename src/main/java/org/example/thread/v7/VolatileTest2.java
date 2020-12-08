@@ -9,7 +9,7 @@ package org.example.thread.v7;
  */
 public class VolatileTest2 {
 
-    private int count = 0;
+    private volatile int count = 0;
 
     public void m() {
         for (int i = 0; i < 10000; i++) {
