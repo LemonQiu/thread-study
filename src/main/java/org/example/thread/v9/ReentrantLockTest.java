@@ -7,7 +7,9 @@ import java.util.concurrent.locks.ReentrantLock;
  * @Author qiu
  * @Date 2020/12/9 22:06
  *
- * 可重入锁，通过lock.lock加锁，通过lock.unlock解锁
+ * ReentrantLock CAS+AQS实现
+ * 可重入，互斥锁，并且支持公平锁
+ * 通过lock.lock加锁，通过lock.unlock解锁
  */
 public class ReentrantLockTest {
 

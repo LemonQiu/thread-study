@@ -13,7 +13,7 @@ public class T implements Runnable {
     @Override
     public synchronized void run() {
         count--;
-        System.out.println("count:" + count);
+        System.out.println("总数:" + count);
     }
 
     public static void main(String[] args) {
