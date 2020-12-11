@@ -1,0 +1,18 @@
+@startuml
+
+/'
+    participant 定义参与者顺序
+    database 图标为数据库形状
+
+'/
+participant ReentrantLock
+participant Sync
+participant AQS
+
+ReentrantLock -> Sync:
+Sync -> AQS
+
+
+
+
+@enduml
