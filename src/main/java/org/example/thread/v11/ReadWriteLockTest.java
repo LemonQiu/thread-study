@@ -23,7 +23,7 @@ public class ReadWriteLockTest {
 
     private static final Lock READ_LOCK = READ_WRITE_LOCK.readLock();
 
-    private static final Lock WRITE_LOCK = READ_WRITE_LOCK.readLock();
+    private static final Lock WRITE_LOCK = READ_WRITE_LOCK.writeLock();
 
     private static final Random RANDOM = new Random();
 

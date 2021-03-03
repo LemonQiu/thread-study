@@ -11,8 +11,8 @@ import java.util.concurrent.TimeUnit;
  *
  * set()方法的时候，key是this(即当前ThreadLocal对象)，而value是Object。且因为Entry对象继承了WeakReference对象，并且对key做了弱引用包装
  *
- * ThreadLocal<Person> THREAD_LOCAL = new ThreadLocal<>()是强引用，只有我们将THREAD_LOCAL=null，对象才会被回收，而又因为ThreadLocalMap的key是弱引用，所以也会被GC回收
- * 但是由于key被回收了，所以当前key为null，而此时谁也无法访问该key指向的value了。
+ * ThreadLocal<Person> THREAD_LOCAL = new ThreadLocal<>()是强引用，只有我们将THREAD_LOCAL=null，对象才会被回收，而又因为ThreadLocalMap的key是弱引用，所以一旦发生GC，就会被回收。
+ * 此时key为null，而此时谁也无法访问该key指向的value了。
  * 如果此时Thread没有停止，那么它所拥有的ThreadLocalMap一直存在，也就是表示key为null的value一直存在，而value是强引用，所以value指向的对象一直无法被GC，就会造成内存泄漏问题
  *
  * 解决方案：
