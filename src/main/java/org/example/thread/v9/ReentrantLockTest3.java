@@ -17,8 +17,8 @@ public class ReentrantLockTest3 {
     Lock lock = new ReentrantLock();
 
     public void m() {
-        lock.lock();
         System.out.println(Thread.currentThread().getName() + ", is lock");
+        lock.lock();
         try {
 //            lock.lockInterruptibly();
             for (int i = 1; i <= 10; i++) {
