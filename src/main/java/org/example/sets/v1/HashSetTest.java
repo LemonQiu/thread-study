@@ -1,4 +1,4 @@
-package org.example.thread.v18;
+package org.example.sets.v1;
 
 import java.util.HashSet;
 import java.util.Set;

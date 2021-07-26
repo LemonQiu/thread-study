@@ -14,8 +14,6 @@ public class ConsumerAndProviderTest2 {
 
     private final LinkedList<Object> list = new LinkedList<>();
 
-    private final int MAX = 10;
-
     private final Lock lock = new ReentrantLock();
     // 生产两个互相隔离的等待对象
     private final Condition producer = lock.newCondition();
@@ -25,7 +23,8 @@ public class ConsumerAndProviderTest2 {
         lock.lock();
         try {
             // 如果不用while而是用if，那么可能存在等待队列中的消费者，因为其他的线程唤醒了，而直接继续执行生产包子，而导致篮子放不下了
-            while (this.getCount() == MAX) {
+            int maxCount = 10;
+            while (this.getCount() == maxCount) {
                 System.out.println("当前篮子已经满了，等待消费者消费。。。");
                 // 生产者进入生产者等待队列
                 producer.await();
@@ -46,7 +45,8 @@ public class ConsumerAndProviderTest2 {
         lock.lock();
         try {
             // 如果不用while而是用if，那么可能存在等待队列中的消费者，因为其他的线程唤醒了，而直接继续执行吃包子，那么就会造成没有包子还能继续吃的问题。
-            while (this.getCount() == 0) {
+            int minCount = 0;
+            while (this.getCount() == minCount) {
                 System.out.println("当前篮子已经空了，等待生产者生产。。。");
                 // 消费者进入消费者等待队列
                 consumer.await();

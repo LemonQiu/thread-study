@@ -1,4 +1,4 @@
-package org.example.thread.v17;
+package org.example.arrays.v1;
 
 import java.util.Vector;
 import java.util.concurrent.CountDownLatch;

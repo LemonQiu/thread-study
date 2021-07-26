@@ -1,4 +1,4 @@
-package org.example.thread.v17;
+package org.example.arrays.v1;
 
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
